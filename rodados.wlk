@@ -27,6 +27,26 @@ class AutoEspecial{
     const property color
 }
 
+class Dependencia {
+    const property flota = #{}
+    var property empleados
+    method agregarAFlota(rodado){
+        flota.add(rodado)
+    }
+    method quitarDeLaFlota(rodado){
+        flota.remove(rodado)
+    }
+    method pesoTotalFlota() = flota.sum({unRodado => unRodado.peso()})
+    method estaBienEquipado() = flota.size() >= 3 && flota.all({unRodado => unRodado.velocidadMaxima() >= 100})
+    method capacidadTotalEnColor(color){
+        flota.filter({unRodado => unRodado.color() == color}).sum({unRodado => unRodado.capacidad()})  
+       }
+    method colorDelRodadoMasRapido() = self.rodadoMasRapido().color()
+    method rodadoMasRapido() = flota.max({unRodado => unRodado.velocidadMaxima()})
+    method capacidadTotal() = flota.sum({unRodado => unRodado. })
+    method esGrande() = empleados.
+} //Nos perdimos :(
+
 object traffic {
   var property interior = popular
   var property motor = pulenta
